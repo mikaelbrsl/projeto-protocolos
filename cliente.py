@@ -6,7 +6,6 @@ def cliente():
 
     print("Digite um comando (LISTAR_LIVROS, BUSCAR_LIVRO <titulo>, ENCERRAR): ")
     while True:
-        
         comando = input().strip()
 
         if comando.upper() == "ENCERRAR":
@@ -26,10 +25,12 @@ def cliente():
 
             if "Deseja reservar?" in resposta:
                 escolha = input().strip().upper()
-                cliente_socket.sendall(escolha.encode())  # Envia SIM/NAO
-
+                cliente_socket.sendall(escolha.encode())
+                
                 if escolha == "SIM":
-                    nome_cliente = input("Digite seu nome para a reserva: ").strip()
+                    resposta = cliente_socket.recv(1024).decode()
+                    print(resposta)
+                    nome_cliente = input().strip()
                     cliente_socket.sendall(nome_cliente.encode())
 
                 resposta = cliente_socket.recv(1024).decode()
@@ -46,7 +47,8 @@ def cliente():
 
     cliente_socket.close()
 
-cliente()
+if __name__ == "__main__":
+    cliente()
 
 
 

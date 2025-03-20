@@ -69,7 +69,8 @@ def iniciar_servidor():
         thread = threading.Thread(target=lidar_com_cliente, args=(conn, addr, biblioteca))
         thread.start()
 
-iniciar_servidor()
+if __name__ == "__main__":
+    iniciar_servidor()
 
 
 
