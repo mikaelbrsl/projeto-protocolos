@@ -1,0 +1,17 @@
+Comandos disponíveis: 
+
+  - LISTAR_LIVROS: lista os livros cadastrados no sistemas e o número de cópias de cada um
+
+  - BUSCAR_LIVRO: <titulo>: retorna informações sobre o livro pesquisado, indicando se o livro está cadastrado ou não e se possui cópias disponíveis. Se o cliente desejar realizar a
+  reserva, é solicitado o nome do cliente
+      Argumentos:
+          titulo: título do livro a ser pesquisado
+
+  - ENCERRAR: encerra a conexão com o servidor
+
+            
+Status de Mensagens:
+
+400 ERRO - Usuário errou o comando
+404 ERRO - O livro solicitado não existe no sistema
+409 ERRO - Sem cópias disponíveis
